@@ -153,12 +153,14 @@ public:
         
         for(int i = 1; i < points.size(); i++)
         {
+            // Finding non overlapping intervals that need a seperate arrow
             if (points[i][0] > e)
             {
                 ans++;
                 s = points[i][0];
                 e = points[i][1];
             }
+            // else shift to current interval as the previous interval can also be hit by the same arrow 
             else if (points[i][1] <= e)
             {
                 s = points[i][0];
