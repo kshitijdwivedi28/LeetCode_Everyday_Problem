@@ -20,12 +20,11 @@ class Solution {
         for(int i = 0; i < S1.size(); i++)
             m[S1[i]] = i;
             
-        int curr = 0;
-        for(int i = 0; i < S2.size(); i++)
-        {
-            ans += abs(curr - m[S2[i]]);
-            curr = m[S2[i]];
-        }
+        ans += m[S2[0]];
+        
+        for(int i = 1; i < S2.size(); i++)
+            ans += abs(m[S2[i-1]] - m[S2[i]]);
+
             
         return ans;
     }
