@@ -8,30 +8,55 @@ using namespace std;
 
 class Solution {
   public:
-    string findAndReplace(string S ,int Q, int index[], string sources[], string targets[]) {
+    string findAndReplace(string s ,int Q, int index[], string sources[], string targets[]) {
         // code here
-        unordered_map<int, vector<string>> m;
+        // unordered_map<int, vector<string>> m;
         
-        for(int i = 0; i < Q; i++)
-        {
-            if (S.substr(index[i], sources[i].size()) == sources[i])
-            {
-                 m[index[i]].push_back(sources[i]);
-                 m[index[i]].push_back(targets[i]);
-            }
-        }
+        // for(int i = 0; i < Q; i++)
+        // {
+        //     if (S.substr(index[i], sources[i].size()) == sources[i])
+        //     {
+        //          m[index[i]].push_back(sources[i]);
+        //          m[index[i]].push_back(targets[i]);
+        //     }
+        // }
+        
+        // string ans = "";
+        
+        // for(int i = 0; i < S.size(); i++)
+        // {
+        //     if (m.find(i) != m.end())
+        //     {
+        //         ans += m[i][1];
+        //         i += m[i][0].size() - 1;
+        //     }
+        //     else
+        //         ans += S[i];
+        // }
+        
+        // return ans;
         
         string ans = "";
         
-        for(int i = 0; i < S.size(); i++)
+        int i = 0, j = 0;
+        
+        while(i < s.size())
         {
-            if (m.find(i) != m.end())
+            if( i == index[j])
             {
-                ans += m[i][1];
-                i += m[i][0].size() - 1;
+                if(s.substr(i,sources[j].size()) == sources[j])
+                {
+                    ans += targets[j];
+                    i += sources[j].size();
+                }
+                
+                j++;
             }
             else
-                ans += S[i];
+            {
+                ans += s[i];
+                i++;
+            }
         }
         
         return ans;
