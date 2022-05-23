@@ -18,8 +18,8 @@ public:
         
         for(int i = 0; i < s.size(); i++)
         {
-            enter_palindrome(s, i, i, ans);
-            enter_palindrome(s, i, i+1, ans);
+            enter_palindrome(s, i, i, ans); // for even sized palindromic substrings
+            enter_palindrome(s, i, i+1, ans); // for odd sized palindromic substrings
         }
         
         return ans.size();
