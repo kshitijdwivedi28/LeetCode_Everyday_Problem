@@ -1,44 +1,5 @@
 class Solution {
 public:
-//     int findMaxForm(vector<string>& strs, int m, int n) {
-        
-//         vector<pair<int, int>> vp;
-        
-//         for(auto s : strs)
-//         {
-//             int count_ones = 0, count_zeroes = 0;
-            
-//             for(auto c : s)
-//                 if (c == '0') count_zeroes++;
-//                 else count_ones++;
-            
-//             vp.push_back({count_zeroes, count_ones});
-//         }
-        
-//         sort(vp.begin(), vp.end());
-        
-//         int i = 0;
-//         for(; i < vp.size(); i++)
-//         {
-//             bool zero = false, one = false;
-//             if (m > 0 && n > 0)
-//             {
-//                 m -= vp[i].first;
-//                 n -= vp[i].second;
-//             }
-//             else
-//                 break;
-//         }
-        
-//         if (m == 0 && n == 0)
-//             return i;
-        
-//         else 
-//             return i-1;
-        
-        
-        
-//     }
 
     int findMaxForm(vector<string>& strs, int m_zeroes, int n_ones) 
     {
