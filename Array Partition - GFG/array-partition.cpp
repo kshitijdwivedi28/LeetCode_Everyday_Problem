@@ -10,13 +10,17 @@ using namespace std;
 class Solution{
     public:
     
-    // just checking if partition is possible or not
+    // // just checking if partition is possible or not
     bool check(vector<int>&A, int start, int N, int K, int M)
     {
+        // if the entire array is traversed and we didn't find any non-obeying pair condition
         if (start >= N) return true;
         
+        // traverse the array to find if the difference between the pairs > M or not
         for(int i = start + K - 1; i < N; i++)
+            // if the differnce is > M condition not obeyed, partition not possible
             if (A[i] > (A[start] + M)) return false;
+            // if the current pair follows check for the next pair
             else if (check(A, i+1, N, K, M)) return true;
         
         return false;
@@ -28,9 +32,8 @@ class Solution{
         sort(A.begin(), A.end());
         
         return check(A, 0, N, K, M);
-        
-        
     }
+
 };
 
 // { Driver Code Starts.
