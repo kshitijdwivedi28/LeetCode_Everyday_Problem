@@ -8,13 +8,32 @@ class Solution
 {
     public:
     //Function to return the sorted array.
-    vector <int> nearlySorted(int arr[], int num, int K){
+    vector <int> nearlySorted(int arr[], int num, int k){
         // Your code here
-        vector<int> ans(arr, arr + num);
+        // vector<int> ans(arr, arr + num);
         
-        sort(ans.begin(), ans.end());
+        // sort(ans.begin(), ans.end());
         
-        return ans;
+        // return ans;
+        
+        
+        priority_queue<int, vector<int>, greater<int>> pq;
+       //min heap in cpp
+       
+       vector<int> ans;
+       for(int i=0;i<num;i++){
+           pq.push(arr[i]);
+           if(pq.size()>k){
+               ans.push_back(pq.top());
+               pq.pop();
+           }
+       }
+       
+       while(!pq.empty()) {
+           ans.push_back(pq.top());
+           pq.pop();
+       }
+       return ans;
     }
 };
 
