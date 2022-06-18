@@ -19,7 +19,7 @@ public:
         if(xs==xd && ys==yd){
             visited[xs][ys]=0;
             return 0;
-        };
+        }
         
         int l = sol(matrix,visited,xs,ys-1,xd,yd);
         int ri = sol(matrix,visited,xs,ys+1,xd,yd);
