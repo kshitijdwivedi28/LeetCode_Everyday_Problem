@@ -6,10 +6,13 @@ public:
         int ans = 0;
         
         reverse(s.begin(), s.end());
+        
         for(int i = 0; i < s.size(); i++)
         {
             if (s[i] == '0') ans++;
-            else if (i < 30)
+            
+            // bit manipulation to check the maximum
+            else if (i < 31)
             {
                 if (k >= (1 << i))
                 {
