@@ -16,7 +16,7 @@ class Solution{
 	    for(int i = 2; i < N+3; i++)
 	        fib[i] = fib[i-1]%mod + fib[i-2]%mod;
 
-	    return (fib[N+2]%mod * fib[N+2]%mod)%mod;
+	    return (fib[N+2] * fib[N+2])%mod;
 	}
 };
 
