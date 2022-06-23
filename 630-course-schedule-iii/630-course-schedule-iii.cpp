@@ -20,8 +20,7 @@ public:
             pq.push(c[0]); // pushing into pq;
             
             // if total time exceeds end time for the current course, remove the course having the maximum duration among the currently selected courses
-            
-            if (total_time > c[1] and pq.size()) 
+            if (total_time > c[1]) 
             {
                 // remove the maximum duration 
                 total_time -= pq.top();
