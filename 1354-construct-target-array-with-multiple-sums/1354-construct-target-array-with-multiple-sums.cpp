@@ -34,7 +34,7 @@ public:
         // optimizing using mod operator
         
         
-                int64_t sum = 0;
+        int64_t sum = 0;
         priority_queue<int> pq;
 
         for(auto v : target)
@@ -54,7 +54,7 @@ public:
                 return false;
             
             sum = remaining_sum + target_max % remaining_sum;
-            pq.push(target_max % remaining_sum ? target_max % remaining_sum : sum);
+            pq.push(target_max % remaining_sum ? target_max % remaining_sum : remaining_sum);
 
         }
         
