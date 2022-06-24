@@ -48,12 +48,16 @@ public:
             int target_max = pq.top();
             pq.pop();
             
+            // getting remaining sum after removing the maximum element
             int64_t remaining_sum = sum - target_max;
             
+            // if diff = target_max - remaining_sum <= 1 or remaining_sum < 1 then not possible
             if (target_max <= remaining_sum || remaining_sum < 1)
                 return false;
             
+            // add remaining sum + mod value instead of subtraction 
             sum = remaining_sum + target_max % remaining_sum;
+            // if case mod value turns to 0 push remaining sum
             pq.push(target_max % remaining_sum ? target_max % remaining_sum : remaining_sum);
 
         }
