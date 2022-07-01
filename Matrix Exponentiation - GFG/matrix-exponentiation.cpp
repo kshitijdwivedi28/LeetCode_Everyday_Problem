@@ -21,7 +21,7 @@ public:
     int FindNthTerm(long long int n) {
         vector<vector<long long int>> mat = {{1,1},{1,0}};
         vector<vector<long long int>> res = {{1,1},{1,0}};
-    
+        n--;
         while(n) {
             if(n%2 == 1) 
                 res = multi(mat,res);
@@ -29,8 +29,23 @@ public:
             mat = multi(mat,mat);
             n = n>>1;
         }
-        return res[0][1]%M;
+        return res[0][0]%M;
     }
+    
+    
+    // int FindNthTerm(long long int n) {
+        
+    //     int mod=1e9+7;
+    //     long long int arr[n+1];
+       
+    //     arr[0]=arr[1]=1;
+       
+    //     for(int i=2;i<=n;i++){
+    //         arr[i]=(arr[i-1]%mod+arr[i-2]%mod)%mod;
+    //     }
+       
+    //   return arr[n];
+    // }
 };
 
 // { Driver Code Starts.
