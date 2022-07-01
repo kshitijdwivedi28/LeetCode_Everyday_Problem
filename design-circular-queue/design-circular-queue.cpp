@@ -3,34 +3,24 @@ private:
     vector<int> data;
     int size = 0;
     int s = -1, e = -1;
+    
 public:
     
     MyCircularQueue(int k) {
-        
-        cout << "\n\n\n";
+
         size = k;
         data.resize(k, INT_MIN);
     }
     
-    bool enQueue(int value) {
-        // cout << "ENQUE : " << s << " " << e << endl;
-        if (isFull())
-        {
-            return false;
-        }
+    bool enQueue(int value) 
+    {
+        if (isFull())   return false;
+        
         else
         {
-            if (e == size-1)
-            {
-                e = 0;
-            }
-            else
-            {
-                e++;
-            }
+            e = (e == size - 1) ? 0 : ++e;
             
-            if (s == -1)
-                s++;
+            if (s == -1) s++;
             
             data[e] = value;
             
@@ -38,68 +28,46 @@ public:
         }
     }
     
-    bool deQueue() {
-        // cout << "DEQUE : " << s << " " << e << endl;
-        if (isEmpty())
-        {
-            return false;
-        }
+    bool deQueue() 
+    {
+        if (isEmpty())  return false;
+        
         else
         {
+            data[s] = INT_MIN;
+            
             if (s == e)
             {
-                if (data[s] != INT_MIN)
-                {
-                    data[s] = INT_MIN;
-                    s = -1;
-                    e = -1;
-                    return true;
-                }
-                
+                s = e = -1;
+                return true;
             }
             
-            data[s] = INT_MIN;
-            if (s == size-1)
-            {
-                s = 0;
-            }
-            else
-            {
-                s++;
-            }
+            s = (s == size-1) ? 0 : ++s;
+
             return true;
         }
     }
     
-    int Front() {
-        
-        if (s == -1)
-            return s;
-        
-        return data[s];
+    int Front() 
+    {
+        return s == -1 ? s : data[s];
     }
     
-    int Rear() {
-        
-        if (e == -1)
-            return e;
-        
-        return data[e];
+    int Rear() 
+    {
+        return e == -1 ? e : data[e];
     }
     
-    bool isEmpty() {
-        
-        if ((s == -1 and e == -1) or (data[s] == INT_MIN))
-            return true;
-        else
-            return false;
+    bool isEmpty() 
+    {
+        if ((s == -1 and e == -1) or (data[s] == INT_MIN))  return true;
+        else return false;
     }
     
-    bool isFull() {
-        if ((e == size-1 and s == 0) or (e+1 == s))
-            return true;
-        else
-            return false;
+    bool isFull() 
+    {
+        if ((e == size-1 and s == 0) or (e+1 == s))     return true;
+        else    return false;
     }
     
 };
