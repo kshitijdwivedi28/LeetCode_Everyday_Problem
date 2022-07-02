@@ -37,12 +37,9 @@ public:
             data[s] = INT_MIN;
             
             if (s == e)
-            {
                 s = e = -1;
-                return true;
-            }
-            
-            s = (s == size-1) ? 0 : ++s;
+            else
+                s = (s == size-1) ? 0 : ++s;
 
             return true;
         }
