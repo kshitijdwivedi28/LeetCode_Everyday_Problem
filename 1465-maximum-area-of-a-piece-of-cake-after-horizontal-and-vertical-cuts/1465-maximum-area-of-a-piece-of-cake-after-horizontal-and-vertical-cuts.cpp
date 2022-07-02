@@ -26,6 +26,10 @@ public:
 
         // Calculating and returning max area mod 1e9+7
         return (int)((long)max_horizontal_cut * max_vertical_cut % 1000000007);
+        
+        
+        // NOTE - Converting to long first to prevent overflow of values 
+        // First convert into long and then to int as required
 
     }
 };
