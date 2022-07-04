@@ -97,16 +97,15 @@ public:
                                  break;
                     }
                     
-                    if (dead_set.find(next_turn) != dead_set.end())
+                    if (dead_set.count(next_turn))
                         continue;
 
-                    if (visited.find(next_turn) == visited.end() )
+                    if (!visited.count(next_turn))
                     {
                         q.push(next_turn);
                         visited.insert(next_turn);
                     }
                 }
-                // end
             }
             
             steps++;
