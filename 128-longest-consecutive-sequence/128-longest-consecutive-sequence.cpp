@@ -26,23 +26,47 @@ public:
 //         }
         
         
-        sort(nums.begin(), nums.end());
+        // Passed => Time complexity => O(n log n)
         
-        for(int i = 1; i < nums.size(); i++)
+//         sort(nums.begin(), nums.end());
+        
+//         for(int i = 1; i < nums.size(); i++)
+//         {
+//             if (nums[i] == nums[i-1]) continue;
+            
+//             if (nums[i] - nums[i-1] == 1) curr_len++;
+            
+//             else
+//             {
+//                 max_len = max(max_len, curr_len);
+//                 curr_len = 1;
+//             }
+//         }
+
+//         return max(max_len, curr_len);
+        
+        
+        // From solution page
+        set<int> s(nums.begin(), nums.end());
+        
+        for(auto v : nums)
         {
-            if (nums[i] == nums[i-1]) continue;
-            
-            if (nums[i] - nums[i-1] == 1) curr_len++;
-            
-            else
+            if (!s.count(v-1))
             {
-                max_len = max(max_len, curr_len);
+                int curr_number = v;
                 curr_len = 1;
+                
+                while(s.count(curr_number + 1))
+                {
+                    curr_number++;
+                    curr_len++;
+                }
+                
+                max_len = max(max_len, curr_len);
             }
         }
-
-        return max(max_len, curr_len);
         
+        return max_len;
         
   
     }
